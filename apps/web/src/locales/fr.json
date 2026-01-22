@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "about": "À propos",
+    "experience": "Expérience",
+    "projects": "Projets",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Salut! Je suis",
+    "name": "Skylar Liang",
+    "description": "Je suis ingénieure logiciel chez Amazon, où je développe des outils pour les équipes produit. J'aime gérer des fonctionnalités de bout en bout et travailler sur des choses que les gens utilisent vraiment. Je recherche des postes full-stack ou product engineer dans des entreprises plus petites où je peux avancer vite et avoir un vrai impact."
+  },
+  "about": {
+    "title": "À propos",
+    "content": "Ingénieure logiciel avec 3 ans chez Amazon, principalement sur des outils internes pour les équipes produit. J'ai travaillé sur tout le stack - frontends React, backends Java, infrastructure AWS - et je suis douée pour plonger dans des codebases inconnus et comprendre rapidement. J'aime les projets où je peux résoudre de vrais problèmes, pas juste implémenter des specs qu'on m'a données. En dehors du travail : café hors de prix, escalade, course à pied (j'ai fait un semi-marathon une fois, plus jamais), crochet et d'autres stéréotypes tech. Basée à Vancouver, BC, ouverte au télétravail ou à la relocalisation."
+  },
+  "experience": {
+    "title": "Mon Parcours",
+    "subtitle": "Un petit tour de mes aventures dans le monde de la tech. Spoiler : beaucoup d'apprentissage (et de café).",
+    "present": "Présent",
+    "jobs": [
+      {
+        "company": "Amazon",
+        "role": "Ingénieure Logiciel",
+        "period": "2022 - Présent",
+        "description": "Développement d'applications web évolutives et leadership des décisions d'architecture frontend. Travail avec des technologies modernes pour offrir des expériences utilisateur exceptionnelles."
+      },
+      {
+        "company": "Entreprise Précédente",
+        "role": "Développeuse Junior",
+        "period": "2021 - 2023",
+        "description": "Développement et maintenance d'applications web. Collaboration avec des équipes transverses pour livrer les fonctionnalités dans les délais."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Projets perso et expérimentations en code.",
+    "comingSoon": {
+      "title": "En préparation",
+      "description": "Mes projets sont actuellement en mode furtif (en fait, j'y travaille encore). Restez à l'écoute pour la grande révélation!"
+    }
+  },
+  "contact": {
+    "title": "Dites Bonjour!",
+    "subtitle": "Je recherche des postes full-stack ou product engineer dans des entreprises plus petites (qu'Amazon) où je peux toucher à différentes choses et avancer rapidement.",
+    "form": {
+      "name": "Nom",
+      "namePlaceholder": "Votre nom",
+      "email": "Courriel",
+      "emailPlaceholder": "votre@courriel.com",
+      "message": "Message",
+      "messagePlaceholder": "Votre message...",
+      "send": "Envoyer",
+      "sending": "Envoi en cours...",
+      "success": "Message envoyé avec succès!",
+      "error": "Échec de l'envoi. Veuillez réessayer."
+    },
+    "validation": {
+      "nameMin": "Le nom doit contenir au moins 2 caractères",
+      "emailInvalid": "Veuillez entrer un courriel valide",
+      "messageMin": "Le message doit contenir au moins 10 caractères"
+    }
+  }
+}

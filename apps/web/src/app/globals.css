@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Warm neutral base */
+  --color-background: #FAF8F5;
+  --color-foreground: #3D3D3D;
+  --color-muted: #F3EFE9;
+  --color-muted-foreground: #8B8680;
+
+  /* Warm accent colors */
+  --color-terracotta: #C4725F;
+  --color-sage: #7D9181;
+  --color-dusty-rose: #C9A9A6;
+  --color-cream: #E8DFD4;
+  --color-warm-brown: #8B7355;
+
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Dark mode - warm dark */
+.dark {
+  --color-background: #1F1D1B;
+  --color-foreground: #F5F2EE;
+  --color-muted: #2A2725;
+  --color-muted-foreground: #A39E97;
+  --color-terracotta: #D4897A;
+  --color-sage: #9BB09F;
+  --color-dusty-rose: #D4BAB7;
+  --color-cream: #3D3935;
+  --color-warm-brown: #A8936F;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+::selection {
+  background: #C4725F;
+  color: white;
+}
+
+/* Gradient text utility - warm gradient */
+.gradient-text {
+  background: linear-gradient(135deg, #C4725F, #C9A9A6, #7D9181);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, #D4897A, #D4BAB7, #9BB09F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

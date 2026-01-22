@@ -1,0 +1,65 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hey there! I'm",
+    "name": "Skylar Liang",
+    "description": "I'm a software engineer building PM tools at Amazon. I like owning features end-to-end and working on things people actually use. Looking for full-stack or product engineer roles at smaller companies where I can move fast and have real impact."
+  },
+  "about": {
+    "title": "About Me",
+    "content": "Software engineer with 3 years at Amazon, mostly building internal tools for product teams. I've worked across the stack - React frontends, Java backends, AWS infrastructure - and I'm good at jumping into unfamiliar codebases and figuring things out quickly. I like projects where I can solve actual problems, not just implement specs someone handed me. Outside of work: overpriced coffee, bouldering, running (did a half marathon once, never again), crochet and other tech stereotype may apply. Based in Vancouver, BC, open to remote or relocating."
+  },
+  "experience": {
+    "title": "Where I've Been",
+    "subtitle": "A quick tour of my adventures in tech land. Spoiler: there's been a lot of learning (and coffee).",
+    "present": "Present",
+    "jobs": [
+      {
+        "company": "Amazon",
+        "role": "Software Dev Engineer",
+        "period": "2022 - Present",
+        "description": "Building scalable web applications and leading frontend architecture decisions. Working with modern technologies to deliver exceptional user experiences."
+      },
+      {
+        "company": "Previous Company",
+        "role": "Junior Developer",
+        "period": "2021 - 2023",
+        "description": "Developed and maintained web applications. Collaborated with cross-functional teams to deliver features on time."
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Side projects and experiments in code.",
+    "comingSoon": {
+      "title": "Cooking Up Something Fun",
+      "description": "My projects are currently in stealth mode (aka I'm still working on them). Stay tuned for the big reveal!"
+    }
+  },
+  "contact": {
+    "title": "Say Hello!",
+    "subtitle": "Looking for full-stack or product engineer roles at smaller (than Amazon) companies where I can get my hands on different things and move quickly.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Your message...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again."
+    },
+    "validation": {
+      "nameMin": "Name must be at least 2 characters",
+      "emailInvalid": "Please enter a valid email",
+      "messageMin": "Message must be at least 10 characters"
+    }
+  }
+}
