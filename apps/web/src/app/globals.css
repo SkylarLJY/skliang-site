@@ -7,7 +7,21 @@
   --color-muted: #F3EFE9;
   --color-muted-foreground: #8B8680;
 
-  /* Warm accent colors */
+  /* Sandwich ingredient colors - Toasted/Pressed bread (panini style) */
+  --color-bread: #E8C9A0;
+  --color-bread-dark: #C4956C;
+  --color-bread-light: #F5DFC4;
+  --color-grill-mark: #8B5A2B;
+  --color-lettuce: #7CB342;
+  --color-lettuce-dark: #558B2F;
+  --color-tomato: #E53935;
+  --color-tomato-light: #FF6F61;
+  --color-cheese: #FFC107;
+  --color-cheese-light: #FFD54F;
+  --color-meat: #8D6E63;
+  --color-meat-dark: #6D4C41;
+
+  /* Legacy accent colors */
   --color-terracotta: #C4725F;
   --color-sage: #7D9181;
   --color-dusty-rose: #C9A9A6;
@@ -25,6 +39,21 @@
   --color-foreground: #F5F2EE;
   --color-muted: #2A2725;
   --color-muted-foreground: #A39E97;
+
+  /* Dark mode sandwich colors - Toasted/Pressed bread */
+  --color-bread: #D4B896;
+  --color-bread-dark: #A87B4F;
+  --color-bread-light: #E8D4B8;
+  --color-grill-mark: #6B4423;
+  --color-lettuce: #8BC34A;
+  --color-lettuce-dark: #689F38;
+  --color-tomato: #EF5350;
+  --color-tomato-light: #FF8A80;
+  --color-cheese: #FFCA28;
+  --color-cheese-light: #FFE082;
+  --color-meat: #A1887F;
+  --color-meat-dark: #8D6E63;
+
   --color-terracotta: #D4897A;
   --color-sage: #9BB09F;
   --color-dusty-rose: #D4BAB7;
@@ -39,21 +68,306 @@ body {
 }
 
 ::selection {
-  background: #C4725F;
+  background: var(--color-tomato);
   color: white;
 }
 
-/* Gradient text utility - warm gradient */
+/* Gradient text utility - sandwich gradient */
 .gradient-text {
-  background: linear-gradient(135deg, #C4725F, #C9A9A6, #7D9181);
+  background: linear-gradient(135deg, var(--color-bun-top), var(--color-tomato-light), var(--color-lettuce));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.dark .gradient-text {
-  background: linear-gradient(135deg, #D4897A, #D4BAB7, #9BB09F);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Sandwich layer wave borders */
+.sandwich-wave-top {
+  position: relative;
+}
+
+.sandwich-wave-top::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: inherit;
+  clip-path: ellipse(60% 100% at 50% 100%);
+}
+
+.sandwich-wave-bottom {
+  position: relative;
+}
+
+.sandwich-wave-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: inherit;
+  clip-path: ellipse(60% 100% at 50% 0%);
+  z-index: 1;
+}
+
+/* Bun texture - sesame seed effect */
+.sesame-seeds {
+  background-image:
+    radial-gradient(ellipse 8px 6px at 15% 30%, var(--color-sesame) 50%, transparent 50%),
+    radial-gradient(ellipse 7px 5px at 35% 15%, var(--color-sesame) 50%, transparent 50%),
+    radial-gradient(ellipse 9px 6px at 55% 40%, var(--color-sesame) 50%, transparent 50%),
+    radial-gradient(ellipse 6px 5px at 75% 20%, var(--color-sesame) 50%, transparent 50%),
+    radial-gradient(ellipse 8px 5px at 85% 45%, var(--color-sesame) 50%, transparent 50%),
+    radial-gradient(ellipse 7px 6px at 25% 50%, var(--color-sesame) 50%, transparent 50%),
+    radial-gradient(ellipse 8px 5px at 65% 55%, var(--color-sesame) 50%, transparent 50%);
+}
+
+/* Lettuce wavy edge */
+.lettuce-edge {
+  position: relative;
+}
+
+.lettuce-edge::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: -5%;
+  right: -5%;
+  height: 40px;
+  background: linear-gradient(90deg, var(--color-lettuce) 0%, var(--color-lettuce-dark) 50%, var(--color-lettuce) 100%);
+  clip-path: polygon(
+    0% 50%, 5% 30%, 10% 60%, 15% 25%, 20% 55%, 25% 20%, 30% 50%, 35% 15%, 40% 45%, 45% 20%,
+    50% 55%, 55% 25%, 60% 50%, 65% 15%, 70% 45%, 75% 25%, 80% 55%, 85% 20%, 90% 50%, 95% 30%, 100% 50%,
+    100% 100%, 0% 100%
+  );
+  z-index: 2;
+}
+
+/* Cheese drip effect */
+.cheese-drip {
+  position: relative;
+}
+
+.cheese-drip::after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  right: 0;
+  height: 35px;
+  background: var(--color-cheese);
+  clip-path: polygon(
+    0% 0%, 100% 0%,
+    100% 30%, 95% 60%, 90% 30%, 85% 70%, 80% 30%, 75% 50%, 70% 30%, 65% 80%, 60% 30%,
+    55% 45%, 50% 30%, 45% 65%, 40% 30%, 35% 55%, 30% 30%, 25% 70%, 20% 30%, 15% 50%, 10% 30%, 5% 60%, 0% 30%
+  );
+  z-index: 2;
+}
+
+/* Tomato slice pattern */
+.tomato-slice {
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 30%),
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,0.05) 0%, transparent 20%),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,0.05) 0%, transparent 20%);
+}
+
+/* =============================================================================
+   SANDWICH LAYER SYSTEM
+   Creates the stacked, overlapping layer effect with subtle depth
+   ============================================================================= */
+
+/*
+ * Layer stacking pattern:
+ * - Each section overlaps the previous by a consistent amount
+ * - Top edge has subtle curvature to suggest "layer thickness"
+ * - Very light top-edge shadow creates depth without card-UI vibes
+ * - z-index increases as you scroll down (later layers stack on top)
+ */
+
+/* Base layer styling - apply to each section's outer container */
+.sandwich-layer {
+  position: relative;
+  z-index: var(--layer-index, 1);
+}
+
+/* Layer overlap - consistent vertical rhythm */
+.sandwich-layer--overlap {
+  margin-top: var(--layer-overlap, -24px);
+}
+
+/* Overlap amounts - use CSS custom properties for easy tuning */
+:root {
+  /* Desktop overlap values */
+  --layer-overlap-sm: -8px;    /* Small overlap - between similar layers */
+  --layer-overlap-md: -12px;   /* Medium overlap - standard */
+  --layer-overlap-lg: -16px;   /* Large overlap - for dramatic transitions */
+
+  /* Layer depths (soft top-edge shadows) */
+  --layer-shadow-subtle: 0 -1px 0 rgba(0, 0, 0, 0.03), 0 -2px 8px rgba(0, 0, 0, 0.04);
+  --layer-shadow-medium: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 -3px 12px rgba(0, 0, 0, 0.06);
+
+  /* Highlight line for layer separation */
+  --layer-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  /* Animation values for "placing" effect */
+  --layer-enter-distance: 60px;
+  --layer-enter-duration: 0.55s;
+  --layer-enter-easing: cubic-bezier(0.22, 0.61, 0.36, 1); /* Custom "settle" easing */
+}
+
+/* Mobile: reduce overlap to prevent crowding */
+@media (max-width: 768px) {
+  :root {
+    --layer-overlap-sm: -4px;
+    --layer-overlap-md: -8px;
+    --layer-overlap-lg: -12px;
+    --layer-enter-distance: 40px;
+  }
+}
+
+/*
+ * Layer content wrapper - the actual "ingredient" shape
+ * Apply rounded top edges for that "layer thickness" feel
+ */
+.sandwich-layer__content {
+  position: relative;
+  border-radius: 28px;
+  /* Subtle top-edge depth shadow */
+  box-shadow: var(--layer-shadow-subtle);
+}
+
+/* Slightly more curved top edge - suggests the layer is rounded/organic */
+.sandwich-layer__content--curved {
+  border-radius: 32px 32px 28px 28px;
+}
+
+/* Extra curved for lettuce-like layers */
+.sandwich-layer__content--wavy {
+  border-radius: 36px 36px 30px 30px;
+}
+
+/* Top-edge highlight line - very subtle separation indicator */
+.sandwich-layer__content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.2) 80%,
+    transparent 100%
+  );
+  border-radius: 1px;
+  pointer-events: none;
+}
+
+/* =============================================================================
+   SCROLL ANIMATION - "PLACING" EFFECT
+   Sections enter from below with a gentle settling motion
+   ============================================================================= */
+
+/*
+ * CSS-only scroll animation using scroll-driven animations (modern browsers)
+ * Falls back gracefully to JS IntersectionObserver for wider support
+ */
+
+/* Initial state - invisible and below */
+.sandwich-layer--animated {
+  opacity: 0;
+  transform: translateY(var(--layer-enter-distance));
+}
+
+/* Triggered state - visible and in place */
+.sandwich-layer--animated.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--layer-enter-duration) var(--layer-enter-easing),
+    transform var(--layer-enter-duration) var(--layer-enter-easing);
+}
+
+/* Slight rotation for organic feel (optional, per-layer) */
+.sandwich-layer--animated.has-rotation {
+  --layer-rotate: 1deg;
+  transform: translateY(var(--layer-enter-distance)) rotate(var(--layer-rotate));
+}
+
+.sandwich-layer--animated.has-rotation.is-visible {
+  transform: translateY(0) rotate(0deg);
+}
+
+/* =============================================================================
+   REDUCED MOTION - ACCESSIBILITY
+   Respects user preference, removes all motion but keeps visual hierarchy
+   ============================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --layer-enter-distance: 0px;
+    --layer-enter-duration: 0.01s;
+  }
+
+  /* Immediately visible, no animation */
+  .sandwich-layer--animated {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .sandwich-layer--animated.is-visible {
+    transition: none;
+  }
+
+  /* Disable all Framer Motion animations via CSS override */
+  [data-framer-motion],
+  [style*="transform"] {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  /* Keep visual depth even without motion */
+  .sandwich-layer__content {
+    box-shadow: var(--layer-shadow-subtle);
+  }
+}
+
+/* =============================================================================
+   LAYER-SPECIFIC DEPTH VARIATIONS
+   Different ingredients have slightly different "thickness" feels
+   ============================================================================= */
+
+/* Bread layers - thicker, more substantial */
+.sandwich-layer--bread .sandwich-layer__content {
+  box-shadow:
+    var(--layer-shadow-medium),
+    var(--layer-highlight);
+}
+
+/* Lettuce - lighter, more delicate */
+.sandwich-layer--lettuce .sandwich-layer__content {
+  box-shadow:
+    var(--layer-shadow-subtle),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Tomato - medium weight */
+.sandwich-layer--tomato .sandwich-layer__content {
+  box-shadow:
+    var(--layer-shadow-subtle),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Cheese - slightly soft/melty appearance */
+.sandwich-layer--cheese .sandwich-layer__content {
+  box-shadow:
+    var(--layer-shadow-subtle),
+    inset 0 2px 0 rgba(255, 255, 255, 0.3);
 }

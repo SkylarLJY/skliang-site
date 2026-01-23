@@ -1,10 +1,6 @@
 "use client";
 
-import { FadeIn } from "@/components/animations/fade-in";
-import {
-  StaggerChildren,
-  StaggerItem,
-} from "@/components/animations/stagger-children";
+import { motion, useReducedMotion } from "framer-motion";
 import { useI18n } from "@/lib/i18n";
 
 const technologies = [
@@ -14,76 +10,125 @@ const technologies = [
 
 export function ExperienceTimeline() {
   const { t } = useI18n();
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section id="experience" className="py-24 px-6">
-      <div className="max-w-5xl mx-auto">
-        <FadeIn>
-          <h2 className="text-4xl font-bold tracking-tight mb-4">
-            <span className="gradient-text">{t.experience.title}</span>
-          </h2>
-          <p className="text-lg text-muted-foreground mb-16 max-w-2xl">
-            {t.experience.subtitle}
-          </p>
-        </FadeIn>
+    <section
+      id="experience"
+      className="relative sticky top-4"
+      style={{
+        zIndex: 3,
+      }}
+    >
+      
+      <motion.div
+        initial={prefersReducedMotion ? false : { y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.55, ease: [0.22, 0.61, 0.36, 1] }}
+        className="relative w-full overflow-hidden"
+        style={{
+          background: `
+            radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,120,100,0.25) 0%, transparent 70%),
+            linear-gradient(180deg, #E54D42 0%, #D94038 50%, #CC3630 100%)
+          `,
+        }}
+      >
+        {/* Tomato emojis scattered in background */}
+        {[
+          { x: '2%', y: '10%', size: 40 },
+          { x: '90%', y: '15%', size: 36 },
+          { x: '85%', y: '70%', size: 38 },
+          { x: '5%', y: '65%', size: 34 },
+          { x: '75%', y: '40%', size: 32 },
+          { x: '12%', y: '40%', size: 30 },
+        ].map((tomato, i) => (
+          <motion.span
+            key={`tomato-${i}`}
+            animate={prefersReducedMotion ? {} : {
+              y: [0, -6, 0],
+              rotate: [0, 5, 0],
+            }}
+            transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.3 }}
+            className="absolute pointer-events-none select-none"
+            style={{
+              left: tomato.x,
+              top: tomato.y,
+              fontSize: tomato.size,
+              opacity: 0.5,
+            }}
+          >
+            🍅
+          </motion.span>
+        ))}
 
-        <StaggerChildren className="relative">
-          <div
-            className="absolute left-0 top-0 bottom-0 w-px hidden md:block"
-            style={{ background: 'linear-gradient(to bottom, #C4725F, #C9A9A6, #7D9181)' }}
-          />
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 py-8 md:py-10">
+          {/* Section Title */}
+          <motion.div
+            initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="flex items-center gap-3 mb-4"
+          >
+            <span className="text-2xl">🍅</span>
+            <h2
+              className="text-xl md:text-2xl font-bold text-white"
+              style={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}
+            >
+              {t.experience.title}
+            </h2>
+          </motion.div>
 
-          {t.experience.jobs.map((exp, index) => (
-            <StaggerItem key={index}>
-              <div className="relative pl-0 md:pl-8 pb-12 last:pb-0">
-                <div
-                  className="absolute left-0 top-2 w-3 h-3 rounded-full hidden md:block -translate-x-[5px]"
-                  style={{ background: index === 0 ? '#C4725F' : '#7D9181' }}
-                />
-
-                <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-8">
-                  <div className="md:w-32 shrink-0">
-                    <p className="text-sm font-mono font-medium text-purple">
-                      {exp.period}
-                    </p>
+          {/* Experience Cards */}
+          <div className="space-y-4">
+            {t.experience.jobs.map((exp, index) => (
+              <motion.div
+                key={index}
+                initial={prefersReducedMotion ? false : { y: 20, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+                className="rounded-2xl p-5 md:p-6"
+                style={{
+                  background: 'rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                }}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 mb-3">
+                  <div>
+                    <h3 className="text-lg md:text-xl font-bold text-white" style={{ textShadow: '0 1px 3px rgba(0,0,0,0.2)' }}>
+                      {exp.role}
+                    </h3>
+                    <p className="text-white/90 font-medium text-sm">{exp.company}</p>
                   </div>
-
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-1">{exp.role}</h3>
-                    <p className="text-muted-foreground mb-3">{exp.company}</p>
-                    <p className="text-foreground/80 leading-relaxed mb-4">
-                      {exp.description}
-                    </p>
-
-                    {technologies[index] && (
-                      <div className="flex flex-wrap gap-2">
-                        {technologies[index].map((tech, techIndex) => {
-                          const colors = [
-                            { bg: 'rgba(196,114,95,0.15)', text: '#C4725F' },
-                            { bg: 'rgba(125,145,129,0.15)', text: '#7D9181' },
-                            { bg: 'rgba(201,169,166,0.15)', text: '#C9A9A6' },
-                            { bg: 'rgba(139,115,85,0.15)', text: '#8B7355' },
-                          ];
-                          const color = colors[techIndex % 4];
-                          return (
-                            <span
-                              key={tech}
-                              className="text-xs px-3 py-1 rounded-full font-medium"
-                              style={{ background: color.bg, color: color.text }}
-                            >
-                              {tech}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
+                  <span className="text-xs font-mono font-bold px-3 py-1.5 rounded-full bg-white/25 text-white self-start">
+                    {exp.period}
+                  </span>
                 </div>
-              </div>
-            </StaggerItem>
-          ))}
-        </StaggerChildren>
-      </div>
-    </section>
+                <p className="text-white/90 text-sm leading-relaxed mb-3">
+                  {exp.description}
+                </p>
+                {technologies[index] && (
+                  <div className="flex flex-wrap gap-2">
+                    {technologies[index].map((tech) => (
+                      <span
+                        key={tech}
+                        className="text-xs px-3 py-1 rounded-full font-medium bg-white/20 text-white border border-white/25"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+
+          </section>
   );
 }
