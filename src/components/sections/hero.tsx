@@ -39,13 +39,16 @@ export function Hero() {
         }}
       >
         {/* Content */}
-        <div className="relative z-10 max-w-4xl mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-28">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 pt-24 pb-32 md:pt-32 md:pb-44">
           {/* Text content - centered */}
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-2 text-[#6B4423]">
+            <h1
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-[#6B4423]"
+              style={{ fontFamily: "var(--font-patrick-hand)" }}
+            >
               <SplitText
                 text={t.hero.name}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight !overflow-visible"
+                className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight !overflow-visible"
                 delay={50}
                 duration={0.6}
                 ease="easeOut"
@@ -62,7 +65,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl font-bold mb-4"
-              style={{ color: "#8B5A2B" }}
+              style={{ color: "#8B5A2B", fontFamily: "var(--font-comfortaa)" }}
             >
               {t.hero.tagline}
             </motion.p>
@@ -72,7 +75,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="text-sm md:text-base max-w-xl mx-auto mb-6 leading-relaxed"
-              style={{ color: "#8B6B4F" }}
+              style={{ color: "#8B6B4F", fontFamily: "var(--font-comfortaa)" }}
             >
               {t.hero.description}
             </motion.p>

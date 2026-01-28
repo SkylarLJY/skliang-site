@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Patrick_Hand, Comfortaa } from "next/font/google";
 import { I18nProvider } from "@/lib/i18n";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
@@ -12,6 +12,17 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const patrickHand = Patrick_Hand({
+  variable: "--font-patrick-hand",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const comfortaa = Comfortaa({
+  variable: "--font-comfortaa",
   subsets: ["latin"],
 });
 
@@ -38,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${patrickHand.variable} ${comfortaa.variable} antialiased`}
         style={{ background: '#8C5F32' }}
       >
         <I18nProvider>
