@@ -23,10 +23,9 @@ export default function Home() {
         <About />
         <ExperienceTimeline />
         <ProjectsGrid />
+        {/* Bottom bread slice */}
+        <ContactForm />
       </div>
-
-      {/* Bottom bread slice */}
-      <ContactForm />
     </div>
   );
 }
