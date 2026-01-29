@@ -323,7 +323,7 @@ export function ContactForm() {
             className="text-center mt-8"
           >
             <span className="text-4xl">{t.emoji}</span>
-            <p className="text-sm font-medium mt-2" style={{ color: '#8B6B4F' }}>
+            <p className="text-sm font-medium mt-2" style={{ color: '#8B6B4F', fontFamily: 'var(--font-comfortaa)' }}>
               {t.contact.complete}
             </p>
           </motion.div>

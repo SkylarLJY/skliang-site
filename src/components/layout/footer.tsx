@@ -45,6 +45,7 @@ export function Footer() {
       className="py-8 px-6"
       style={{
         background: 'linear-gradient(0deg, rgba(140, 95, 50, 0.97) 0%, rgba(165, 115, 65, 0.97) 100%)',
+        fontFamily: 'var(--font-comfortaa)',
       }}
     >
       <div className="max-w-4xl mx-auto">

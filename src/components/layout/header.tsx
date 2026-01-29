@@ -68,6 +68,7 @@ export function Header() {
       style={{
         background: 'linear-gradient(180deg, rgba(160, 110, 60, 0.97) 0%, rgba(185, 135, 85, 0.97) 100%)',
         borderColor: 'rgba(120, 80, 40, 0.4)',
+        fontFamily: 'var(--font-comfortaa)',
       }}
     >
       <nav className="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between">
